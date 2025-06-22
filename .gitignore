@@ -3,7 +3,7 @@
 node_modules/
 
 # Environment variables
-.env
+server/.env
 
 
 # Dependency directories (in both client and server)
