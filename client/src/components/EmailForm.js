@@ -1,37 +1,41 @@
 // client/src/components/EmailForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const API_BASE = 'http://localhost:5000/api';
+import './EmailForm.css';
 
 const EmailForm = () => {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState('');
 
-  const handleSubscribe = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_BASE}/subscribers`, { email });
-      setMessage('Verification email sent! Check your inbox.');
+      await axios.post('http://localhost:5000/api/subscribers', { email });
+      setMessage('✅ Verification email sent! Check your inbox.');
+      setEmail('');
     } catch (err) {
-      setMessage(err.response?.data?.message || 'Something went wrong.');
+      setMessage('❌ Subscription failed. Try again.');
     }
-    setEmail('');
   };
 
   return (
-    <form method="POST" onSubmit={handleSubscribe}>
+    <form onSubmit={handleSubmit} className="email-form">
       <input
         type="email"
         name="email"
+        required
+        placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        required
+        className="email-input"
       />
-      <button type="submit" id="submit-email">Subscribe</button>
-      {message && <p>{message}</p>}
+      <button type="submit" id="submit-email" className="subscribe-btn">
+        Subscribe
+      </button>
+      {message && <p className="email-message">{message}</p>}
     </form>
   );
 };
 
 export default EmailForm;
+

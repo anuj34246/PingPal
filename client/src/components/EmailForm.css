@@ -1,0 +1,39 @@
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.email-input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+.subscribe-btn {
+  padding: 0.75rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: #27ae60;
+}
+
+.email-message {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.25rem;
+}
