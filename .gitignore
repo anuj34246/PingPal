@@ -4,6 +4,7 @@ node_modules/
 
 # Environment variables
 server/.env
+.env
 
 
 # Dependency directories (in both client and server)
