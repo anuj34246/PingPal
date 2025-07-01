@@ -1,104 +1,139 @@
-# 📝 Task Scheduler with Email Reminders (MERN Stack)
 
-A full-featured task management app built with MongoDB, Express, React, and Node.js. Users can add tasks and subscribe for hourly email reminders of incomplete tasks.
 
----
 
-## 🔧 Features
-- Add, delete, and mark tasks complete/incomplete
-- Subscribe with email (with verification)
-- Hourly email reminders for pending tasks
-- Unsubscribe with 1-click
+```markdown
+# 📅 PingPal 
+
+A modern full-stack MERN application for managing tasks with support for email subscription, verification, and hourly reminder notifications.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Features
+
+✅ Add, complete, and delete tasks  
+✅ Email subscription with verification  
+✅ Hourly email reminders for incomplete tasks  
+✅ Unsubscribe functionality  
+✅ CRON-based reminder system  
+✅ Admin email alerts on delivery failure  
+✅ User-friendly UI with React
+
+---
+
+## 🧱 Tech Stack
+
+**Frontend**  
+- React.js  
+- Axios  
+- Tailwind CSS  
+
+**Backend**  
+- Express.js (Node.js)  
+- MongoDB (MongoDB Atlas)  
+- Nodemailer (Gmail or Mailpit SMTP)  
+- node-cron  
+
+---
+
+## 📁 Folder Structure
 
 ```
-.
-├── server/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   ├── cron/
-│   └── server.js
+
+mern-task-scheduler/
+├── client/               # React frontend
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── App.js
+│       └── index.js
 │
-└── client/
-    ├── src/
-    │   ├── components/
-    │   ├── pages/
-    │   └── App.js
-```
+├── server/               # Express backend
+│   ├── models/           # Mongoose schemas (Task, Subscriber)
+│   ├── routes/           # API routes
+│   ├── utils/            # Email sending functions
+│   ├── cron/reminder.js  # Hourly reminder CRON job
+│   ├── server.js
+│   └── .env
+
+````
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Setup Instructions
 
-### 1. Clone Repository
+### 1️⃣ Clone & Install
+
 ```bash
-git clone <your-repo-url>
-cd your-repo-name
-```
+git clone https://github.com/anuj34246/PingPal.git
+````
 
-### 2. Backend Setup
+### 2️⃣ Start Backend
+
 ```bash
 cd server
 npm install
-```
-
-Create a `.env` file:
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/task-scheduler
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_app_password
-FRONTEND_URL=http://localhost:3000
-```
-
-Start the server:
-```bash
+cp .env.example .env   # Fill in your credentials
 npm start
 ```
 
-### 3. Frontend Setup
+### 3️⃣ Start Frontend
+
 ```bash
-cd client
+cd ../client
 npm install
 npm start
 ```
 
-App will run at: `http://localhost:3000`
+---
+
+## 🔐 .env Configuration (Backend)
+
+```env
+PORT=5000
+MONGO_URI="db_connection"
+SMTP_USER="example@gmail.com"
+SMTP_PASS="16_digit SMTP pass"
+FRONTEND_URL=http://localhost:3000
+```
 
 ---
 
-## ⏰ CRON Jobs (Reminders)
-Reminder system runs automatically every hour using `node-cron` in `server/cron/reminder.js`. No manual setup needed.
+## ⏰ CRON Job
+
+The backend includes a CRON job that:
+
+* Runs every hour
+* Fetches all incomplete tasks
+* Sends reminders to verified subscribers
+* Retries once on failure and alerts the admin if it still fails
+
+📍 File: `server/cron/reminder.js`
 
 ---
 
-## 📬 Email Notes
-- Uses Gmail SMTP (enable 2FA and generate App Password)
-- Verification and reminder emails are sent in HTML format
+
+## 🧪 Final Test Checklist
+
+* [x] Add new tasks
+* [x] Mark tasks complete/incomplete
+* [x] Subscribe and verify email
+* [x] Receive hourly reminders
+* [x] Unsubscribe via email link
+* [x] Admin alerted if reminders fail
 
 ---
 
-## ✅ Routes Summary
+## 🧑‍💻 Author
 
-### API Routes
-- `GET /api/tasks`
-- `POST /api/tasks`
-- `PATCH /api/tasks/:id`
-- `DELETE /api/tasks/:id`
-- `POST /api/subscribers`
-- `GET /api/subscribers/verify?email=&code=`
-- `GET /api/subscribers/unsubscribe?email=`
-
-### Frontend Routes
-- `/` — Task Manager + Subscription
-- `/verify?email=&code=` — Verifies subscription
-- `/unsubscribe?email=` — Unsubscribes email
+**Anuj Kumar**
+GitHub: [@anuj34246](https://github.com/anuj34246)
 
 ---
 
-## 👨‍💻 Author
-Developed as part of an assignment implementation in both PHP and MERN Stack.
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+```
+
+
