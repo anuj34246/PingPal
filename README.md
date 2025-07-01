@@ -1,8 +1,5 @@
 
-
-
-```markdown
-# 📅 PingPal 
+# PingPal
 
 A modern full-stack MERN application for managing tasks with support for email subscription, verification, and hourly reminder notifications.
 
@@ -10,36 +7,37 @@ A modern full-stack MERN application for managing tasks with support for email s
 
 ## 🚀 Features
 
-✅ Add, complete, and delete tasks  
-✅ Email subscription with verification  
-✅ Hourly email reminders for incomplete tasks  
-✅ Unsubscribe functionality  
-✅ CRON-based reminder system  
-✅ Admin email alerts on delivery failure  
+✅ Add, complete, and delete tasks\
+✅ Email subscription with verification\
+✅ Hourly email reminders for incomplete tasks\
+✅ Unsubscribe functionality\
+✅ CRON-based reminder system\
+✅ Admin email alerts on delivery failure\
 ✅ User-friendly UI with React
 
 ---
 
 ## 🧱 Tech Stack
 
-**Frontend**  
-- React.js  
-- Axios  
-- Tailwind CSS  
+**Frontend**
 
-**Backend**  
-- Express.js (Node.js)  
-- MongoDB (MongoDB Atlas)  
-- Nodemailer (Gmail or Mailpit SMTP)  
-- node-cron  
+- React.js
+- Axios
+- Tailwind CSS
+
+**Backend**
+
+- Express.js (Node.js)
+- MongoDB (MongoDB Atlas)
+- Nodemailer (Gmail or Mailpit SMTP)
+- node-cron
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-
-mern-task-scheduler/
+PingPal/
 ├── client/               # React frontend
 │   └── src/
 │       ├── components/
@@ -54,8 +52,7 @@ mern-task-scheduler/
 │   ├── cron/reminder.js  # Hourly reminder CRON job
 │   ├── server.js
 │   └── .env
-
-````
+```
 
 ---
 
@@ -65,14 +62,15 @@ mern-task-scheduler/
 
 ```bash
 git clone https://github.com/anuj34246/PingPal.git
-````
+cd PingPal
+```
 
 ### 2️⃣ Start Backend
 
 ```bash
 cd server
 npm install
-cp .env.example .env   # Fill in your credentials
+cp .env.example .env   # Then update .env with your credentials
 npm start
 ```
 
@@ -90,9 +88,9 @@ npm start
 
 ```env
 PORT=5000
-MONGO_URI="db_connection"
-SMTP_USER="example@gmail.com"
-SMTP_PASS="16_digit SMTP pass"
+MONGO_URI=your_mongo_db_connection_string
+SMTP_USER=example@gmail.com
+SMTP_PASS=your_16_digit_app_password
 FRONTEND_URL=http://localhost:3000
 ```
 
@@ -102,14 +100,18 @@ FRONTEND_URL=http://localhost:3000
 
 The backend includes a CRON job that:
 
-* Runs every hour
-* Fetches all incomplete tasks
-* Sends reminders to verified subscribers
-* Retries once on failure and alerts the admin if it still fails
+- Runs every hour
+- Fetches all incomplete tasks
+- Sends reminders to verified subscribers
+- Retries once on failure and alerts the admin if it still fails
 
-📍 File: `server/cron/reminder.js`
+📍 Location: `server/cron/reminder.js`
 
 ---
+
+
+
+
 
 
 ## 🧪 Final Test Checklist
@@ -121,19 +123,13 @@ The backend includes a CRON job that:
 * [x] Unsubscribe via email link
 * [x] Admin alerted if reminders fail
 
+
+
+
+
 ---
 
 ## 🧑‍💻 Author
 
-**Anuj Kumar**
+**Anuj Kumar**\
 GitHub: [@anuj34246](https://github.com/anuj34246)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-```
-
-
